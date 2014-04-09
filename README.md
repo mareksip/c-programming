@@ -1,3 +1,0 @@
-UniCPlusPlus
-============
-Programming code practice.
