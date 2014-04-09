@@ -1,0 +1,61 @@
+// calculator.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <Windows.h>
+#include <stdio.h>
+#include <conio.h>
+
+int al;
+int bl;
+int gpl;
+int lines;
+
+int alc;
+int blc;
+int gplc;
+int linesc;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+printf("Enter number of a letters\n");
+scanf_s("%d",&al);
+printf("Enter number of b letters\n");
+scanf_s("%d",&bl);
+printf("Enter number of groups per line\n");
+scanf_s("%d",&gpl);
+printf("Enter number lines \n");
+scanf_s("%d",&lines);
+
+ 
+
+for(linesc;linesc<lines;linesc++)
+{
+printf("\n");
+for(gplc;gplc<gpl;gplc++)
+{
+blc =0 ;
+alc = 0;
+while(blc <bl)
+{
+
+while(alc <al)
+{
+
+printf("A");
+alc++;
+}
+
+printf("B");
+blc++;
+}
+printf(" ");
+}
+blc =0 ;
+alc = 0;
+gplc = 0;
+}
+
+
+system("pause");
+}

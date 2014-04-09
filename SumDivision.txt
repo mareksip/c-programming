@@ -1,0 +1,40 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	int c;
+	int d,cont =1;
+	while (cont == 1)
+	{
+		printf("Enter first number\n");
+		scanf_s("%d",&c);
+		printf("You entered %d\n", c);
+		printf("Enter second number\n");
+		scanf_s("%d",&d);
+		printf("You entered %d\n", d);
+		printf("First integer you entered was %d\n", c);
+		printf("Second integer you entered was %d\n", d);
+		printf("Sum is %d\n", c+d);
+		getchar();
+		if(d == 0)
+		{
+			printf("second int is 0, division is impossibru\n");
+			 printf("Multiplication is %d\n", c*d);
+		}
+		else
+		{
+			 printf("Division is %d\n", c/d);
+			 printf("Multiplication is %d\n", c*d);
+		
+		}
+		scanf_s("%d",&cont); 
+	}
+	getchar();
+
+}
+

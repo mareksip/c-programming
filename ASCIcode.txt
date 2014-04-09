@@ -1,0 +1,66 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <conio.h>
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	char key;
+	int value_of_key;
+	int number = 0; 
+	int lenght =0;
+
+	do 
+	{
+		key = _getch();
+		if (key == 0 || key == -32)
+		{
+			_getch();
+
+		}
+		else
+		{
+
+			if (key >= '0' && key <= '9'&& lenght <9)
+			{
+				if(lenght >0 || key > '0'){
+
+				value_of_key = key - '0';
+				printf("%d",value_of_key);
+				// printf("You pressed %c, ascii code is %d.\n",key,key)
+				number = 10 * number + value_of_key;
+				lenght++;
+				putchar(key); 
+				
+				}
+			}
+			if (key = '\b' && lenght > 0)
+			{
+				number = number / 10;
+				lenght --;
+				if(lenght == 0)
+				{
+					printf("\b0");
+				}
+				else
+				{
+					printf("\b \b");
+
+				}
+			}
+		
+			
+
+		}
+	}
+
+	while (key != 27);
+
+	printf("\nThe number you entered is %d\n",number);
+	getchar();
+
+	return 0;
+}
+

@@ -1,0 +1,50 @@
+// calculator.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <Windows.h>
+#include <conio.h>
+
+int x;
+int y;
+char c ;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+printf("Enter first number: \n");
+scanf_s("%d",&x);
+// printf("You entered %d",x);
+printf("Enter second number: \n");
+scanf_s("%d",&y);
+printf("%d + %d = %d \n",x,y, x +y);
+
+printf("Do you want to repeat cycle? Y/N");
+
+c = _getch();
+
+while(c = 'y')
+{
+
+printf("Enter first number: \n");
+scanf_s("%d",&x);
+// printf("You entered %d",x);
+printf("Enter second number: \n");
+scanf_s("%d",&y);
+printf("%d + %d = %d \n",x,y, x +y);
+
+printf("Do you want to repeat cycle? Y/N \n");
+c = _getch();
+if(c != 'y') break;
+
+}
+
+getchar();
+getchar();
+system("pause");
+
+return 0;
+
+}
+
+ 

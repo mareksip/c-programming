@@ -1,0 +1,35 @@
+// calculator.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <Windows.h>
+#include <stdio.h>
+#include <conio.h>
+
+int a = 0;
+int b = 0;
+int c = 1;
+char ca;
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+while(c > 0)
+{
+
+printf("Enter positive number that is greater than previous \n");
+scanf_s("%d",&b);
+
+if(c>b) 
+printf("This is wrong enter number that is greater than %d \n",c);
+
+else
+c = b;
+
+}
+
+system("pause");
+return 0;
+}
+
+ 

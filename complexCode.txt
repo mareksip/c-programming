@@ -1,0 +1,71 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+ 
+#include <windows.h>
+#include "stdafx.h"
+#include "conio.h"
+
+struct TComplex {
+	float re;
+	float im;
+};
+
+
+void PrintComplex(struct TComplex anumber)
+{
+
+		printf("%f%+fi\n",anumber.re,anumber.im);
+
+}
+struct TComplex GetComplex1()
+{
+	struct TComplex localV;
+	printf("Enter real part of number 1\n");
+	scanf_s("%f",&localV.re);
+	printf("Enter imaginary part of number 1\n");
+	scanf_s("%f",&localV.im);
+
+	return localV;
+}
+
+struct TComplex GetComplex2()
+{
+	struct TComplex localV;
+	printf("Enter real part of number 2\n");
+	scanf_s("%f",&localV.re);
+	printf("Enter imaginary part of number 2\n");
+	scanf_s("%f",&localV.im);
+
+	return localV;
+}
+
+
+struct TComplex AddComplex(struct TComplex num1, struct TComplex num2)
+{
+   struct TComplex sum;
+   sum.im = num1.im + num2.im;
+   sum.re = num1.re + num2.re;
+
+   return sum;
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	struct TComplex mynumber1;
+	mynumber1 = GetComplex1();
+	struct TComplex mynumber2;
+	mynumber2 = GetComplex2();
+
+	struct TComplex sumnum;
+	sumnum = AddComplex(mynumber1,mynumber2);
+	printf("(%f%+fi)+(%f%+fi)\n",mynumber1.re,mynumber1.im,mynumber2.re,mynumber2.im);
+	PrintComplex(sumnum);
+	
+	getchar();
+	getchar();
+	return 0;
+
+	
+
+}
+
