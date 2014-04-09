@@ -1,0 +1,80 @@
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "iostream"
+using namespace std;
+
+struct Item {
+	int value;
+	Item * next;
+};
+
+Item * List;
+Item * Current;
+
+Item * newItem(int val) {
+	Item * createdItem = new Item;
+	createdItem -> value = val;
+	createdItem -> next = NULL;
+	return createdItem;
+}
+
+void addToStart(int val) {
+   Item * t = newItem(val);
+   t -> next = List;
+   List = t;
+   Current = t;
+}
+
+void addToEnd(int val) {
+	Item * t = List;
+	while (t != NULL) {
+		if (t->next == NULL) {
+			t->next = newItem(val);
+		}
+		t = t->next;
+	}
+}
+
+void addAfterCurrent(int val) {
+	Item * t = newItem(val);
+	t -> next = Current -> next;
+	Current -> next = t;
+	Current = t;
+}
+
+void addBeforeCurrent(int val) {
+	Item * newI = newItem(val);
+	Item * t = NULL;
+	t = List;
+	while(t->next != Current) {
+		t = t->next;
+	}
+	newI -> next = t -> next;
+	t -> next = newI;
+}
+
+void listItems() {
+	Item * t = List;
+	while (t != NULL) {
+		cout << t -> value << endl;
+		t = t -> next;
+	}
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	List = NULL;
+	addToStart(5);
+	addToStart(10);
+	addToStart(15);
+	addAfterCurrent(20);
+	addBeforeCurrent(30);
+	addToEnd(100);
+
+	listItems();
+
+	return 0;
+}
+
