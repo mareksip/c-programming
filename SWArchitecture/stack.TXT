@@ -1,0 +1,94 @@
+// Stack.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "iostream"
+#include <time.h>
+
+using namespace std;
+
+int stack[20];
+int SP = 1;
+
+int queue[6];
+int maxq = 6;
+int SQ = 1;
+int EQ = 0;
+
+int length() {
+
+	return ((EQ - SQ + maxq + 1) % maxq);
+}
+
+void enqueue(int v)
+{
+	if (length() < maxq){
+	EQ = (EQ + 1) % maxq;
+	queue[EQ] = v;
+	}
+	
+}
+
+
+
+int dequeue(){
+	if (length > 0)
+	{
+	int tv = queue[SQ];
+	SQ = (SQ + 1) % maxq; 
+	return tv;
+	}
+	return NULL;
+	
+}
+void push(int v)
+{
+	if (SP < 19)
+		stack[SP] = v;
+		++SP;
+
+}
+int pop(){
+	if (SP>1){
+		SP--;
+		return stack[SP];
+
+	}
+
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	push(5);
+	push(4);
+	push(3);
+	push(2);
+	push(1);
+
+	cout << pop() << endl;
+	cout << pop() << endl;
+	cout << pop() << endl;
+	cout << pop() << endl;
+	cout << pop() << endl;
+	cout << "" << endl;
+	cout << "enqueu" << endl;
+	cout << "" << endl;
+
+	cout << length() << endl;
+
+	enqueue(5);
+	enqueue(4);
+	enqueue(3);
+	enqueue(2);
+	enqueue(1);
+
+	cout << dequeue() << endl;
+	cout << dequeue() << endl;
+	cout << dequeue() << endl;
+	cout << dequeue() << endl;
+	cout << dequeue() << endl;
+	
+	system("pause");
+	return 0;
+}
+
