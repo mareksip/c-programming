@@ -94,6 +94,7 @@ void DeleteStudent()
 	{
 		TStudent *a=first;
 		first=first->next;
+		free(a);
 	}
 	while (student!=NULL)
 	{
