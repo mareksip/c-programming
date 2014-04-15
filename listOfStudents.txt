@@ -1,5 +1,5 @@
 // ConsoleApplication1.cpp : Defines the entry point for the console application.
-//
+// mareksip
 
 #include "stdafx.h"
 #include <conio.h>
@@ -96,19 +96,22 @@ void DeleteStudent()
 		first=first->next;
 		free(a);
 	}
-	while (student!=NULL)
+	else
 	{
-		if(toDelete - 1 == pom)
+		while (student!=NULL)
 		{
-			TStudent *a;
-			a = student->next;
-
-			student->next=student->next->next;
-
-			free(a);
+			if(toDelete - 1 == pom)
+			{
+				TStudent *a;
+				a = student->next;
+	
+				student->next=student->next->next;
+	
+				free(a);
+			}
+			pom++;
+			student=student->next;
 		}
-		pom++;
-		student=student->next;
 	}
 
 
