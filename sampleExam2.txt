@@ -1,0 +1,66 @@
+// ConsoleApplication5.cpp : Defines the entry point for the console application.
+//
+
+
+#include "stdafx.h"
+#include <windows.h>
+#include <conio.h>
+#include <stdlib.h>
+
+int Skip;
+int count,lines;
+int x,y;
+
+void PrintLine(int LineNumber,int Base, int x)
+{
+	
+		printf("%d. ",x);
+		if (Skip==0 && LineNumber>=1) 
+		{
+		for (y=1;y<=x;y++) printf("A");
+		for (y=1;y<=x*2;y++) printf("B");
+		
+		}
+
+		else if(Skip==1 && LineNumber>=1)
+		{
+	
+			if(x == 1)
+			{
+
+			}
+			else
+			{
+				for (y=1;y<=x;y++) printf("A");
+				for (y=1;y<=x*2;y++) printf("B");
+			}
+		}
+		printf("\n");
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	//The result for base=1 and lines count=3 is:
+	//1. ABB
+	//2. AABBBB
+	//3. AAABBBBBB
+	//The result for base=2 and lines count=3 is:
+	//1. AABBBB
+	//2. AAAABBBBBBBB
+	//3. AAAAAABBBBBBBBBBBBBBBB
+	//The result for base=2 and lines count=3 with skipped first line:
+	//1.
+	//2. AAAABBBBBBBB
+	//3. AAAAAABBBBBBBBBBBBBBBB
+
+
+	printf("Enter base ");
+	scanf_s("%d",&count);
+	printf("Enter lines count ");
+	scanf_s("%d",&lines);
+	printf("Skip first line? 0=No, 1=Yes ");
+	scanf_s("%d",&Skip);
+	for (x=1;x<=lines;x++) PrintLine(lines,count,x);
+	printf("\n");
+	system("pause");
+}

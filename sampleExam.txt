@@ -1,0 +1,85 @@
+// ConsoleApplication5.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <windows.h>
+#include <conio.h>
+#include <stdlib.h>
+
+int posx;
+int posy;
+int paintchar=32;
+char ka;
+
+void gotoxy(int x, int y)  //This function moves cursor to desired position given by x (column) and y (row)
+	//This function is error-free
+{
+	COORD point;
+	point.X = x; point.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),
+		point);
+}
+
+void Move(char k)
+{
+	if (k=='8') 
+		posy--;
+	if (posy==0) posy=25;
+
+	if (k=='2') {
+		posy++;
+		if (posy==26) posy=1;
+	}
+	if (k=='4') {
+		posx--;
+			if (posx==0) posx=80;
+	}
+	if (k=='6') {
+		posx++;
+		if (posx==81) posx=1;
+	}
+	if (k==32 || k>64 || k<123) //32-Spacebar, >64 and <123 is any letter (in ASCII)
+	{
+	gotoxy(posx,posy);
+	printf("%c",ka);
+	}
+
+}
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+	char key;
+	printf("This program paints on screen using this keys\n8-up, 2-down, 4-left, 6-right (arrows on num-pad)\nPress any letter to change fill-character\nPress Esc to exit\n\n");
+		printf("Initial x-position ");
+	scanf_s("%d",&posy);
+	printf("Initial y-position ");
+	scanf_s("%d",&posx);
+	system("cls");
+	gotoxy(posx,posy);
+	do {
+		
+		key=_getch();
+		if(key == 27)
+		{
+			break;
+		}
+		if(key > 64 && key < 123)
+		{
+			ka = key;
+			Move(ka);
+		}
+		else
+		{
+			if(key == 32)
+			{
+			ka = key;
+			Move(ka);
+			}
+			else
+			{
+				Move(key);
+			}
+		}
+	} while (ka!=27);
+	return 0;
+}
